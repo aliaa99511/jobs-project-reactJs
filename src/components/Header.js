@@ -8,7 +8,9 @@ function Header() {
         <header className="header">
             <h1>JobsNow</h1>
             <nav>
-                <Link to="/jobs">All Jobs</Link>
+                <Link to="/jobs">Home</Link>
+                <Link to="/jobs/search">Search</Link>
+                <Link to="/jobs">History</Link>
             </nav>
             <SearchBox />
         </header>

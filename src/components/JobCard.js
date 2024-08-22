@@ -5,11 +5,11 @@ import '../styles/JobCard.css';
 function JobCard({ job }) {
     return (
         <div className="job-card">
-            <h3>{job.title}</h3>
+            <h3>{job.attributes.title}</h3>
             <div className="skills">
-                {job.skills.map((skill) => (
+                {job.relationships.skills.map((skill) => (
                     <Link key={skill.id} to={`/skill/${skill.id}`} className="skill-link">
-                        {skill.name}
+                        {/* {skill.name} */}
                     </Link>
                 ))}
             </div>

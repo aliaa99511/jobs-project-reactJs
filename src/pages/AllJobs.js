@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import JobCard from '../components/JobCard';
 import InfiniteScroll from '../components/InfiniteScroll';
+import '../styles/JobsList.css';
 
 function AllJobs() {
     const [jobs, setJobs] = useState([]);
@@ -14,9 +15,9 @@ function AllJobs() {
 
     const loadJobs = async () => {
         const response = await axios.get(`https://skills-api-zeta.vercel.app/jobs?cursor=${cursor}&limit=12`);
-        setJobs([...jobs, ...response.data.jobs]);
+        setJobs([...jobs, ...response.data.data.jobs]);
         setCursor(cursor + 12);
-        setTotalJobs(response.data.total);
+        setTotalJobs(response.data.data.meta.count);
     };
 
     return (

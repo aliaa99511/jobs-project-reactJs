@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
@@ -9,12 +10,18 @@ function SearchJobs() {
     const query = new URLSearchParams(location.search).get('query');
 
     useEffect(() => {
-        fetchSearchResults();
+        if (query) {
+            fetchSearchResults();
+        }
     }, [query]);
 
     const fetchSearchResults = async () => {
-        const response = await axios.get(`https://skills-api-zeta.vercel.app/jobs/search?query=${query}`);
-        setJobs(response.data.jobs);
+        try {
+            const response = await axios.get(`https://skills-api-zeta.vercel.app/jobs/search?query=${query}`);
+            setJobs(response.data.data.jobs);
+        } catch (error) {
+            console.error("Error fetching search results", error);
+        }
     };
 
     return (
@@ -32,3 +39,4 @@ function SearchJobs() {
 }
 
 export default SearchJobs;
+

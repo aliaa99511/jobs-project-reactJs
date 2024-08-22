@@ -20,7 +20,7 @@
 
 .suggestions {
     position: absolute;
-    top: 40px;
+    top: 25px;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -28,6 +28,8 @@
     max-height: 200px;
     overflow-y: auto;
     z-index: 10;
+    margin-left: -5px;
+    padding-left: 9px;
 }
 
 .suggestions li {
@@ -35,6 +37,7 @@
     cursor: pointer;
     list-style-type: none;
     border-bottom: 1px solid #eee;
+    color: #000;
 }
 
 .suggestions li:hover {

@@ -13,6 +13,7 @@ function App() {
     <Router>
       <Header />
       <Routes>
+        <Route path="" element={<AllJobs />} />
         <Route path="/jobs" element={<AllJobs />} />
         <Route path="/jobs/search" element={<SearchJobs />} />
         <Route path="/job/:id" element={<Job />} />

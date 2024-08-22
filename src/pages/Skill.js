@@ -12,15 +12,16 @@ function Skill() {
 
     const fetchSkill = async () => {
         const response = await axios.get(`https://skills-api-zeta.vercel.app/skill/${id}`);
-        setSkill(response.data);
+        console.log("response skill", response);
+
+        setSkill(response.data.skill);
     };
 
     if (!skill) return <p>Loading...</p>;
 
     return (
         <div>
-            <h2>{skill.name}</h2>
-            <p>{skill.description}</p>
+            <h2>{skill.attributes.name}</h2>
         </div>
     );
 }
